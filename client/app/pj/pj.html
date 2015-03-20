@@ -4,18 +4,16 @@
       Cadastro de Empresas
     </h1>
   </div>
-
   <p ng-show="mensagem.texto">
     {{mensagem.texto}}
   </p>
-  <button ng-click="openModal()" class="btn btn-primary">Nova Empresa</button>
-  <!--<a ng-href="#/empresa" ng-click="client/components/modal/modal.html" class="btn btn-primary">Nova Empresa</a>-->
-
-
-  <p ng-show="empresa.length">
-    Fornecedores cadastrados: {{empresa.length}}
+  <div ng-controller="ModalDemoCtrl">
+     <button class="btn btn-primary" ng-click="open('lg')" >Nova Empresa</button>
+  </div>
+  <p ng-show="empresas.length">
+    Fornecedores cadastrados: {{empresas.length}}
   </p>
-  <p class="text-info" ng-hide="empresa.length">
+  <p class="text-info" ng-hide="empresas.length">
     Não há fornecedores cadastrados
   </p>
 
@@ -42,12 +40,20 @@
 
         <td class="text-center">
           <button
-            ng-click="remove(empresa)"
+            ng-click="count = count + 1" ng-init="count=0"
             class="btn btn-warning">
+            <span>
+  count: {{count}}
+</span>
             Remover
           </button>
+
         </td>
       </tr>
     </table>
+
   </div>
+
+
+
 </div>
