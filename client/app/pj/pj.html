@@ -1,0 +1,53 @@
+<div class="container" ng-controller="PjCtrl">
+  <div class="jumbotron">
+    <h1 class="text-center">
+      Cadastro de Empresas
+    </h1>
+  </div>
+
+  <p ng-show="mensagem.texto">
+    {{mensagem.texto}}
+  </p>
+  <button ng-click="openModal()" class="btn btn-primary">Nova Empresa</button>
+  <!--<a ng-href="#/empresa" ng-click="client/components/modal/modal.html" class="btn btn-primary">Nova Empresa</a>-->
+
+
+  <p ng-show="empresa.length">
+    Fornecedores cadastrados: {{empresa.length}}
+  </p>
+  <p class="text-info" ng-hide="empresa.length">
+    Não há fornecedores cadastrados
+  </p>
+
+  <input type="search" placeholder="parte do nome" ng-model="businessfilter">
+
+  <div class="table-responsive" >
+    <table class="table table-hover">
+      <tr>
+        <th>Nome</th>
+        <th>CNPJ</th>
+        <th>Fantásia</th>
+        <th>E-mail</th>
+        <th>Telefore</th>
+        <th class="text-center">Ação</th>
+      </tr>
+      <tr ng-repeat="empresa in empresas">
+        <td>
+          <a ng-href="#/fornecedor/{{empresa._id}}">{{empresa.name}}</a>
+        </td>
+        <td>{{empresa.cnpj}}</td>
+        <td>{{empresa.fantasy}}</td>
+        <td>{{empresa.email}}</td>
+        <td>{{empresa.phone}}</td>
+
+        <td class="text-center">
+          <button
+            ng-click="remove(empresa)"
+            class="btn btn-warning">
+            Remover
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
