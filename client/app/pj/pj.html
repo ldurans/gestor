@@ -4,18 +4,76 @@
       Cadastro de Empresas
     </h1>
   </div>
+
   <p ng-show="mensagem.texto">
     {{mensagem.texto}}
   </p>
-  <div ng-controller="ModalDemoCtrl">
-     <button class="btn btn-primary" ng-click="open('lg')" >Nova Empresa</button>
-  </div>
+     <button ModalPj id='btnNovaEmpresa' class="btn btn-primary" ng-click="open('lg')" >Nova Empresa</button>
+
   <p ng-show="empresas.length">
     Fornecedores cadastrados: {{empresas.length}}
   </p>
+
+
+  <button ng-click="botao1()" ng-hide="mostrarBtn">Botao 1</button>
+  <br /><br />
+  <button ng-click="mostrarBtn = true" ng-show="!mostrarBtn">Esconder botão 1</button>
+  <button ng-click="mostrarBtn = false" ng-show="mostrarBtn">Mostrar botão 1</button>
+
+
+  <a href="#modal-id" data-toggle="modal" class="btn btn-primary centrado">Agregar Persona</a>
+  <br>
+  <br>
+
+  <br>
+  <div class="modal fade" id="modal-id">
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-miss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Registro de Personas</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <form action="">
+
+              <label>Nombre:</label>
+              <input type="text" class="form-control" ng-model="nombre"/>
+
+              <label>Apellido:</label>
+              <input type="text" class="form-control" ng-model="apellido"/>
+
+              <label>Domicilio:</label>
+              <input type="text" class="form-control" ng-model="domicilio"/>
+
+              <label>Teléfono:</label>
+              <input type="text" class="form-control" ng-model="telefono"/>
+
+              <label>Email:</label>
+              <input type="text" class="form-control" ng-model="email"/>
+              <br>
+              <input type="submit" value="Guardar" class="btn btn-success" ng-click="guardarCliente()"/>
+              <input type="button" value="Limpiar" class="btn btn-danger" ng-click="limpiarDatos()"/>
+
+            </form>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
   <p class="text-info" ng-hide="empresas.length">
     Não há fornecedores cadastrados
   </p>
+
 
   <input type="search" placeholder="parte do nome" ng-model="businessfilter">
 

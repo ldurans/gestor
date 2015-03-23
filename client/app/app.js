@@ -10,7 +10,7 @@ angular.module('gestorApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/pj'
       });
 
     $locationProvider.html5Mode(true);

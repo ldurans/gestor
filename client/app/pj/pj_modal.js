@@ -1,18 +1,10 @@
-angular.module('gestorApp').controller('ModalDemoCtrl', function ($scope, $modal, $log) {
-
-  $scope.items = ['item1', 'item2', 'item3'];
+angular.module('gestorApp').factory('ModalPj', function ($scope, $modal, $log, $http) {
 
   $scope.open = function (size) {
 
     var modalInstance = $modal.open({
-      templateUrl: 'app/pj/pj_modal.html',
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
+      templateUrl: '/app/pj/pj_modal.html',
+      size: size
     });
 
     modalInstance.result.then(function (selectedItem) {
@@ -25,7 +17,7 @@ angular.module('gestorApp').controller('ModalDemoCtrl', function ($scope, $modal
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
-
+/*
 angular.module('gestorApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
   $scope.items = items;
@@ -41,3 +33,4 @@ angular.module('gestorApp').controller('ModalInstanceCtrl', function ($scope, $m
     $modalInstance.dismiss('cancel');
   };
 });
+*/
